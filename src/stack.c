@@ -58,5 +58,19 @@ int pop(stack *mod_stack)
 
 int main(void)
 {
+        /* Testing the functionality */
+        stack *test_stack = init_stack();
+        int i, j;
+
+        for (i = 0; i < 5; ++i) {
+                push(test_stack, i);
+        }
+
+        for (j = 0; j < 5; ++j) {
+                printf("%d\n", pop(test_stack));
+        }
+
+        puts("Lift off!");
+        
         return 0;
 }
