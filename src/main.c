@@ -5,7 +5,7 @@
 int main(void)
 {
         /* Testing the functionality */
-        stack *test_stack = init_stack();
+        stack *test_stack = init_stack(5);
         int i, j;
 
         for (i = 1; i < 6; ++i) {
@@ -18,6 +18,6 @@ int main(void)
 
         puts("Lift off!");
 
-        free(test_stack);
+        dispose_stack(test_stack);
         return 0;
 }
