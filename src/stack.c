@@ -8,14 +8,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
-#define MAX_STACK_SIZE 1024 /* Maximum size of the stack */
-
-/* The stack data structure, implemented as a typedef */
-typedef struct {
-        int data[MAX_STACK_SIZE];
-        int top;
-} stack;
+#include "stack.h"
 
 /* This is a function to initialise the stack structure, returns a pointer */
 stack *init_stack(void)
@@ -28,20 +21,20 @@ stack *init_stack(void)
 }
 
 /* Function to push (add) values to stack */
-void push(stack *modstack, int val)
+void push(stack *mod_stack, int val)
 {
         /* Check if the stack is full */
-        if (modstack->top < MAX_STACK_SIZE) {
+        if (mod_stack->top < MAX_STACK_SIZE) {
                 /* Increment top and add value */
-                modstack->top++;
-                modstack->data[modstack->top] = val;
+                mod_stack->top++;
+                mod_stack->data[mod_stack->top] = val;
         } else {
                 /* Print error to stderr if stack is full */
                 fprintf(stderr, "Err: Stack full.\n");
         }
 }
 
-/* Function to pop (remove) value from the stack*/
+/* Function to pop (remove) value from the stack */
 int pop(stack *mod_stack)
 {
         /* Check if stack contains data */
@@ -54,24 +47,4 @@ int pop(stack *mod_stack)
 
         /* return failure */
         return -1;
-}
-
-int main(void)
-{
-        /* Testing the functionality */
-        stack *test_stack = init_stack();
-        int i, j;
-
-        for (i = 1; i < 6; ++i) {
-                push(test_stack, i);
-        }
-
-        for (j = 0; j < 5; ++j) {
-                printf("%d\n", pop(test_stack));
-        }
-
-        puts("Lift off!");
-
-        free(test_stack);
-        return 0;
 }
