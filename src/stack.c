@@ -41,6 +41,21 @@ void push(stack *modstack, int val)
         }
 }
 
+/* Function to pop (remove) value from the stack*/
+int pop(stack *mod_stack)
+{
+        /* Check if stack contains data */
+        if (mod_stack->top < 0) {
+                fprintf(stderr, "Err: Stack empty.\n");
+        } else {
+                /* return the found data */
+                return mod_stack->data[mod_stack->top--];
+        }
+
+        /* return failure */
+        return -1;
+}
+
 int main(void)
 {
         return 0;
