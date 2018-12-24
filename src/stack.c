@@ -62,7 +62,7 @@ int main(void)
         stack *test_stack = init_stack();
         int i, j;
 
-        for (i = 0; i < 5; ++i) {
+        for (i = 1; i < 6; ++i) {
                 push(test_stack, i);
         }
 
@@ -71,6 +71,7 @@ int main(void)
         }
 
         puts("Lift off!");
-        
+
+        free(test_stack);
         return 0;
 }
