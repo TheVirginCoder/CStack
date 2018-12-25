@@ -16,7 +16,7 @@ stack *init_stack(int stack_size)
         /* Dynamically allocate size of the stack structure */
         stack *new_stack = (stack *)malloc(sizeof(stack));
         new_stack->data = (int *)malloc(sizeof(int) * stack_size);
-        new_stack->top = -1; /* Set top to -1 (Empty stack) */
+        new_stack->top = STACK_EMPTY; /* Set top to -1 */
         new_stack->size = stack_size;
 
         return new_stack;
@@ -34,8 +34,7 @@ void push(stack *mod_stack, int val)
         /* Check if the stack is full */
         if (mod_stack->top < mod_stack->size) {
                 /* Increment top and add value */
-                mod_stack->top++;
-                mod_stack->data[mod_stack->top] = val;
+                mod_stack->data[++mod_stack->top] = val;
         } else {
                 /* Print error to stderr if stack is full */
                 fprintf(stderr, "Err: Stack full.\n");
@@ -46,7 +45,7 @@ void push(stack *mod_stack, int val)
 int pop(stack *mod_stack)
 {
         /* Check if stack contains data */
-        if (mod_stack->top < 0) {
+        if (mod_stack->top == STACK_EMPTY) {
                 fprintf(stderr, "Err: Stack empty.\n");
         } else {
                 /* return the found data */
@@ -54,5 +53,5 @@ int pop(stack *mod_stack)
         }
 
         /* return failure */
-        return -1;
+        return STACK_EMPTY;
 }

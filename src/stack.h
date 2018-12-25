@@ -1,6 +1,7 @@
 #ifndef STACK_H
 #define STACK_H
 
+#define STACK_EMPTY -1
 
 /* The stack data structure, implemented as a typedef */
 typedef struct {

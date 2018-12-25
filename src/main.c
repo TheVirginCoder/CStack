@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include "stack.h"
 
 int main(void)
@@ -16,7 +15,7 @@ int main(void)
                 printf("%d\n", pop(test_stack));
         }
 
-        puts("Lift off!");
+        puts("THUNDERBIRDS ARE GO!!!");
 
         dispose_stack(test_stack);
         return 0;
